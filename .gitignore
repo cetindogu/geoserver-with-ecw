@@ -1,0 +1,31 @@
+#Geoserver
+geoserver_data
+
+# Docker
+Dockerfile.*
+!Dockerfile
+docker-compose.override.yml
+*.log
+*.tar
+
+# Docker Compose
+.env
+.env.*
+*.env.local
+.dockerenv
+!*.prod.env
+
+# Ignore container logs
+logs
+*.log
+
+# Ignore node_modules
+node_modules/
+
+# Ignore built files
+dist/
+build/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
