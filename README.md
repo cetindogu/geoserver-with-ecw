@@ -8,13 +8,13 @@ Bu Docker projesi, orjinal geoserver docker imajında olmayan,  GDAL ECW desteğ
 2. Bu projeyi klonlayın:
 
     ```bash
-    git clone https://github.com/<kullanıcı_adı>/<repo_adi>.git
+    git clone https://github.com/cetindogu/geoserver-with-ecw.git
     ```
 
 3. Dockerfile'ı kullanarak imajı oluşturun:
 
     ```bash
-    docker build -t geoserver-gdal-ecw:<sürüm_etiketi> .
+    docker build -t geoserver-gdal-ecw:v1 .
     ```
 
 ## Kullanım
@@ -22,7 +22,7 @@ Bu Docker projesi, orjinal geoserver docker imajında olmayan,  GDAL ECW desteğ
 GeoServer'ı çalıştırmak için aşağıdaki komutu kullanabilirsiniz:
 
 ```bash
-docker run --name=geoserver-with-ecw --volume='C:\gitprojects\DOCKER-GEOSERVER-WITH-ECW\additional_libs:/opt/additional_libs:rw,Z' --volume='C:\gitprojects\DOCKER-GEOSERVER-WITH-ECW\geoserver_data:/opt/geoserver_data:rw,Z' -p 8080:8080 geoserver-gdal-ecw:<sürüm_etiketi>
+docker run --name=geoserver-with-ecw --volume='C:\gitprojects\DOCKER-GEOSERVER-WITH-ECW\additional_libs:/opt/additional_libs:rw,Z' --volume='C:\gitprojects\DOCKER-GEOSERVER-WITH-ECW\geoserver_data:/opt/geoserver_data:rw,Z' -p 8080:8080 geoserver-gdal-ecw:v1
 ```
 
 veya 
