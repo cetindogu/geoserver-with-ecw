@@ -52,6 +52,9 @@ ARG ERDAS_ECW_SDK_EXTRACT_PATH=/usr/local/ERDAS_ECW_SDK
 
 # Yerelde saklanan ECW SDK'yi zipten cikart ve .zip dosyasini sil
 COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip /tmp/
+COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z01 /tmp/
+COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z02 /tmp/
+COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z03 /tmp/
 RUN unzip -q /tmp/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip -d ${ERDAS_ECW_SDK_EXTRACT_PATH}/ && rm /tmp/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip
 
 # Yerelde saklanan GDAL kaynak kodunu tar.gz'den cikart (gdal-3.8.3 klasörü olusur) ve .tar.gz dosyasini sil
