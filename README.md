@@ -19,7 +19,7 @@ Bu Docker projesi, orjinal geoserver docker imajında olmayan,  GDAL ECW desteğ
 
 ## Kullanım
 
-GeoServer'ı çalıştırmak için aşağıdaki komutu kullanabilirsiniz:
+GeoServer'ı çalıştırmak için aşağıdaki komutu kullanabilirsiniz: --volume parametrelerini kendi dizininize göre ayarlayabilir veya komple kaldırabilirsiniz.
 
 ```bash
 docker run --name=geoserver-with-ecw --volume='C:\gitprojects\DOCKER-GEOSERVER-WITH-ECW\additional_libs:/opt/additional_libs:rw,Z' --volume='C:\gitprojects\DOCKER-GEOSERVER-WITH-ECW\geoserver_data:/opt/geoserver_data:rw,Z' -p 8080:8080 geoserver-gdal-ecw:v1
