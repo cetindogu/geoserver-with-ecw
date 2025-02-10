@@ -1,5 +1,5 @@
 # parametre verilen GEOSERVER_VERSION # değerini al
-ARG GEOSERVER_VERSION=2.25.x
+ARG GEOSERVER_VERSION=2.26.2
 
 FROM docker.osgeo.org/geoserver:${GEOSERVER_VERSION}
 
@@ -16,7 +16,7 @@ RUN chmod 777 /tmp
 
 # mevcutta yuklu gelen gdal-bin ve gdal-data kutuphaneleri
 # derlenecek gdal ile karismamasi icin sil
-RUN apt-get remove -y gdal-bin gdal-data
+# RUN apt-get remove -y gdal-bin gdal-data
 
 # GDAL-3.8.3'un ECW SDK ile birlikte 
 # cmake komutuyla derlenebilmesi icin
