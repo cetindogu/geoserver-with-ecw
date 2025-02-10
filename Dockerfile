@@ -11,6 +11,9 @@ ENV STABLE_EXTENSIONS=gdal,oracle,importer
 ENV EXTRA_JAVA_OPTS="-Xms1G -Xmx2G" 
 # Geoserver orjinal docker base imaj sec
 
+# tmp dizini için yetki gerekli
+RUN chmod 777 /tmp
+
 # mevcutta yuklu gelen gdal-bin ve gdal-data kutuphaneleri
 # derlenecek gdal ile karismamasi icin sil
 RUN apt-get remove -y gdal-bin gdal-data
