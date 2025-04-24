@@ -6,7 +6,7 @@ FROM docker.osgeo.org/geoserver:${GEOSERVER_VERSION}
 # ENV CORS_ENABLED=true
 # ENV CORS_ALLOWED_METHODS=GET,POST,PUT,HEAD,OPTIONS
 
-ENV INSTALL_EXTENSIONS true
+ENV INSTALL_EXTENSIONS=true
 ENV STABLE_EXTENSIONS=gdal,oracle,importer
 ENV EXTRA_JAVA_OPTS="-Xms1G -Xmx2G" 
 # Geoserver orjinal docker base imaj sec
@@ -24,7 +24,7 @@ RUN chmod 777 /tmp
 RUN apt-get update && \
     apt-get install -y \ 
     ant \
-    unzip \
+    p7zip-full \
     build-essential \
     cmake \
     gcc \
@@ -58,7 +58,8 @@ COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip /tmp/
 COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z01 /tmp/
 COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z02 /tmp/
 COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z03 /tmp/
-RUN unzip -q /tmp/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip -d ${ERDAS_ECW_SDK_EXTRACT_PATH}/ && rm /tmp/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip
+COPY ./staticfiles/ERDAS-ECW_JPEG_2000_SDK-5.5.0.z04 /tmp/
+RUN 7z x -y /tmp/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip -o${ERDAS_ECW_SDK_EXTRACT_PATH}/ && rm /tmp/ERDAS-ECW_JPEG_2000_SDK-5.5.0.zip
 
 # Yerelde saklanan GDAL kaynak kodunu tar.gz'den cikart (gdal-3.8.3 klasörü olusur) ve .tar.gz dosyasini sil
 COPY ./staticfiles/gdal-3.8.3.tar.gz /tmp/
